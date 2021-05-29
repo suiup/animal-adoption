@@ -1,0 +1,132 @@
+<script src="javascripts/user.js"></script>
+<style>
+
+    #login, #register {
+        color: whitesmoke;
+        margin: 4px;
+
+    }
+
+    #login:link, #register:link {
+        text-decoration: none;
+    }
+
+    #login:visited, #register:visited {
+        text-decoration: none;
+    }
+
+    #login:hover, #register:hover {
+        text-decoration: underline;
+    }
+
+    #login:active, #register:active {
+        text-decoration: underline;
+    }
+</style>
+<header class="header" style="background-color: #ffe4c4" >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
+        <div class="container">
+            <a class="navbar-brand" href="/">GTZ-AnimalAdoption</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample07">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                </ul>
+                <form class="d-flex col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="/search">
+                    <input class="form-control me-2" type="search" id="search" name="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+
+                <% if(!user) { %>
+                    <!--modal-->
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" id="login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" id="register" >Register</a>
+                        </li>
+                    </ul>
+                    <!--login modal-->
+                    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="loginForm" onsubmit="login('/login')" method="POST">
+                                        <div class="mb-3">
+                                            <label for="username" class="col-form-label">Username:</label>
+                                            <input type="text" class="form-control" name="username" id="username">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="password" class="col-form-label">Password:</label>
+                                            <input type="password" class="form-control" name="password" id="password">
+                                        </div>
+                                    </form>
+                                    <div class="alert alert-danger" id="loginAlert" role="alert"></div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" onclick="login('/login')">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--register modal-->
+                    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="registerForm"  method="POST">
+                                        <div class="mb-3">
+                                            <label for="registerUsername" class="col-form-label">Username:</label>
+                                            <input type="text" class="form-control" name="username" id="registerUsername">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="registerPassword" class="col-form-label">Password:</label>
+                                            <input type="password" class="form-control" name="password" id="registerPassword">
+                                        </div>
+                                    </form>
+                                    <div class="alert alert-danger" id="registerAlert" role="alert"></div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" onclick="register('/register')">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <%} else {%>
+                    <div id="afterLogin" class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="images/logo.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+                            <strong id="displayUsername"><%= user.username %></strong>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                            <li><a class="dropdown-item" href="/addForAdoption">New animal</a></li>
+                            <li><a class="dropdown-item" href="/adoptedList">Adopted List</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                <%} %>
+            </div>
+        </div>
+    </nav>
+</header>

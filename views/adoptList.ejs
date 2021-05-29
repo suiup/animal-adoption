@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+            integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<style>
+    .bd-aside {
+        padding: .1875rem .5rem;
+        float: left;
+        margin-top: .125rem;
+        margin-left: .3125rem;
+        color: rgba(0, 0, 0, .65);
+        text-decoration: none;
+        padding-top: 4rem;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
+<body>
+<% include ./public/header.ejs %>
+<aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2"></aside>
+<main class="main" id="animalData" style="padding-bottom: 100px">
+    <div style="margin-top: 20px">
+        <div class="col-md-12" style="text-align: center">
+            <% if(noMatch !== null) { %>
+                <h1>
+                    <%= noMatch %>
+                </h1>
+            <% } %>
+        </div>
+        <% if(data.length === 0 && noMatch === null) { %>
+            <div class="card border-dark mb-3" style="max-width: 25rem; margin: 10% 0 0 30% ">
+                <div class="card-header">Welcome to Animal Adoption</div>
+                <div class="card-body text-dark">
+                    <p class="card-text">There is no animal now, you can login first and create new animals!</p>
+                </div>
+            </div>
+        <%} else { %>
+            <p class="card-text">There are <span style="color: red"><%= data.length %></span> results</p>
+        <%}%>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% for(var i=0; i< data.length; i++) {%>
+            <div class="col">
+                <div class="card h-100">
+                    <a href="animal?id=<%=data[i].id%>">
+                        <img src="<%= data[i].img %>" class="card-img-top" style="width: 100%; height: 20vw" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center">name : <%=data[i].name%></h5>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <br><br>
+    <ul class="list-unstyled text-small">
+        <li>&copy; Copyright 2021 Animal Adoption</li>
+    </ul>
+</footer>
+</body>
+<style>
+    .footer {
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        padding: 3px;
+        text-align: center;
+    }
+</style>
+</html>

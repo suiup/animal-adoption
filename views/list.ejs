@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--list example template-->
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/delete.js"></script>
+</head>
+<body>
+<h1><%= title %></h1>
+
+<h2>Character deleted </h2>
+<div id="results">No Character deleted </div>
+
+<div id="characters"><h2>List of all other characters: </h2></div>
+<ul>
+
+    <% for(var i=0; i<data.length; i++) {%>
+        <li>
+            <span><%= data[i].name %></span>
+            <span><%= data[i].breed %></span>
+            <span><%= data[i].location %></span>
+            <span><%= data[i].adopted %></span>
+            <span><button id="<%= data[i].id %>" onclick="deleteData(event.target.id)">Delete</button></span>
+
+
+        </li>
+    <% } %>
+</ul>
+
+</body>
+</html>

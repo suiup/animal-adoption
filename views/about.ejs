@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+            integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/about.css">
+</head>
+<body>
+<% include ./public/header.ejs %>
+<section id="para1" class="py-5 text-center container">
+    <div class="row py-lg-3">
+        <div class="col-lg-8 col-md-8 mx-auto">
+            <h1 class="fw-bold">About</h1>
+            <p class ="lead text-md-start fw-normal">
+                This is an online animal adopting platform.
+                You can posting images and descriptions of the animals available for adoptions
+                commenting on the animals and searching and browsing the website and apply to adopt an animal.</p>
+            <p class="lead text-md-start fw-normal">
+                The client-server architecture will allow users to:
+                <ul class="lead text-sm-start fw-normal fs-5">
+                    * Browse/Search for animals by keywords and refine the results using faceted search;<br>
+                    * Insert descriptions of animals available for adoption, including photo and location;<br>
+                    * Apply to adopt an animal by filling a form;<br>
+                    * Comment on the images of the animals by:<br>
+                        <ul class="text-sm-start fw-normal fs-5">
+                            1) Drawing on the images;<br>
+                            2) Adding textual comments or replying to someone else’s comment.
+                        </ul>
+                </ul>
+                <ul class="fs-6 text-muted">
+                    This platform is built by George Wright, Tu Shen, and Zheng Sui.
+                </ul>
+            </p>
+        </div>
+    </div>
+</section>
+<% include ./public/footer.ejs %>
+</body>
+</html>

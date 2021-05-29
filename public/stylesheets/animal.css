@@ -1,0 +1,90 @@
+#page {
+  align-content: center;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+#page{
+
+  display:grid;
+  grid-template-areas:
+  "head head"
+  "info images"
+  "comments form"
+  "foot foot";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 3fr 3fr 1fr;
+
+
+}
+
+#information > li{
+  list-style-type: none;
+  font-size: large;
+  text-align: center;
+  padding:5%;
+}
+#commentList >li{
+  text-align:left;
+  border-style: groove;
+  font-size: medium;
+  padding: inherit;
+  list-style-type: none;
+}
+#page > header{
+  grid-area: head;
+
+}
+#page > #info{
+  grid-area:info;
+
+}
+#page > #images{
+  align-content: center;
+  grid-area:images;
+
+
+}
+
+#page > #comments{
+  grid-area:comments;
+
+}
+#page > #form{
+  grid-area:form;
+
+}
+
+#page > footer{
+  grid-area:foot;
+
+}
+
+.grid-container > div{
+  text-align: center;
+}
+
+h1{
+  text-align:center;
+}
+
+#images >canvas{
+  width: 100%;
+  height: 100%;
+  max-height:400px;
+
+}
+
+#animals{
+  display: grid;
+}
+
+#animals > li{
+  width:33%;
+  height:2vm;
+  display: block;
+}

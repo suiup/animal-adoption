@@ -1,0 +1,44 @@
+<main class="main" id="animalData" style="padding-bottom: 100px">
+    <div style="margin-top: 20px">
+        <div class="col-md-12" style="text-align: center">
+            <% if(noMatch !== null) { %>
+                <h1>
+                    <%= noMatch %>
+                </h1>
+            <% } %>
+        </div>
+        <% if(data.length === 0 && noMatch === null) { %>
+            <div class="card border-dark mb-3" style="max-width: 25rem; margin: 10% 0 0 30% ">
+                <div class="card-header">Welcome to Animal Adoption</div>
+                <div class="card-body text-dark">
+                    <p class="card-text">There is no animal now, you can login first and create new animals!</p>
+                </div>
+            </div>
+        <%} else { %>
+            <p class="card-text">There are <span style="color: red"><%= data.length %></span> results</p>
+        <%}%>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% for(var i=0; i< data.length; i++) {%>
+            <div class="col">
+                <div class="card h-100">
+                    <a href="animal?id=<%=data[i].id%>">
+                        <img src="<%= data[i].img %>" class="card-img-top" style="width: 100%; height: 20vw" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center">name : <%=data[i].name%></h5>
+                        <% if(data[i].adopted === false) { %>
+                            <a href="adoptAnimal?id=<%=data[i].id%>&img=<%=data[i].img%>&name=<%=data[i].name%>" >
+                                <button value="adopt" type="button" class="btn btn-primary"  style="display: block; margin: 0 auto" >Adopt</button>
+                            </a>
+                        <%} else { %>
+                            <h1 style="font-weight: bold; color: red; text-align: center">ADOPTED</h1>
+                        <%}%>
+
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+        </div>
+    </div>
+</main>

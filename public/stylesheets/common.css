@@ -1,0 +1,19 @@
+
+
+.line1{
+    border-bottom: 2px solid red;
+    padding:10px;
+}
+.padtop{
+    padding:10px;
+
+}
+li{
+    height: 68px;
+
+}
+
+#header {
+    width: 100%;
+    overflow: hidden;
+}
