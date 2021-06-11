@@ -27,8 +27,8 @@
                     <div class="card-body">
                         <h5 class="card-title" style="text-align: center">name : <%=data[i].name%></h5>
                         <% if(data[i].adopted === false) { %>
-                            <a href="adoptAnimal?id=<%=data[i].id%>&img=<%=data[i].img%>&name=<%=data[i].name%>" >
-                                <button value="adopt" type="button" class="btn btn-primary"  style="display: block; margin: 0 auto" >Adopt</button>
+                            <a style="text-decoration:none" href="adoptAnimal?id=<%=data[i].id%>&img=<%=data[i].img%>&name=<%=data[i].name%>" >
+                                <button value="adopt" type="button" class="btn btn-warning"  style="display: block; margin: 0 auto" >Adopt</button>
                             </a>
                         <%} else { %>
                             <h1 style="font-weight: bold; color: red; text-align: center">ADOPTED</h1>
