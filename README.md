@@ -22,6 +22,10 @@ default port is 3000
 localhost:3000
 ```
 
+ps: Cannot run from bin/www directly
+
+
+
 Have not finished yet...
 
 

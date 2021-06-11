@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 
-let mongoDB = 'mongodb://localhost:27017/animalsForAdoption';
+let mongoDB = 'mongodb://localhost:27017/animals';
 
 mongoose.Promise = global.Promise;
 
